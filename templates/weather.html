@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <title>Weather Information</title>
+
+    <style>
+      body {background-color: {{ bg }} }
+      [show="false"] {display: none}
+      [error]{display:none}
+      [error="True"] {display:block !important; color: red}
+    </style>
+  </head>
+
+
+  <body style="margin: 0 auto; width:1000px">
+    <div class="container">
+      <h1>Weather Information</h1>
+      <h3>Host Name: {{ host }}</h3>
+      <div class="mb-3">
+        <form action="/" method = "POST">
+          <label for="exampleFormControlInput1" class="form-label">enter location:</label>
+          <input type="text" class="form-control " onkeydown="return /[A-Z a-z]/.test(event.key)" name="location" id="exampleFormControlInput1" placeholder="London">
+          <button type="submit" class="btn btn-primary my-3">Submit</button>
+        </form>
+      </div>
+
+      <div error={{error}}>
+        <h2>Invalid input</h2>
+      </div>
+
+      <div show={{"true" if daily else "false"}}>
+        <p>name: {{ name }}</p>
+        <p>Latitude: {{ latitude }}</p>
+        <p>Longitude: {{ longitude }}</p>
+        <p>country: {{ country }}</p>
+      </div>
+
+      <table show={{"true" if daily else "false"}} class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Day Temperature</th>
+            <th>Night Temperature</th>
+            <th>Humidity</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for day in daily %}
+          <tr>
+            <td>{{ day["dt"] }}</td>
+            <td>{{ day["temp"]["day"] | int}}&#8451;</td>
+            <td>{{ day["temp"]["night"] | int }}&#8451;</td>
+            <td>{{ day["humidity"] }}%</td>
+          </tr>
+        {% endfor %}
+
+        </tbody>
+      </table>
+
+      <a href="/history">to history</a>
+    </div>
+  </body>
+
+</html>
