@@ -12,3 +12,10 @@ The project demonstrates the implementation of a Jenkins pipeline for building, 
   alt="Alt text"
   title="Optional title"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+  <img
+  src="kubernetes-jenkins.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+
