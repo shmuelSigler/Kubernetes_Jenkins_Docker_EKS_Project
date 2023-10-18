@@ -43,3 +43,6 @@ For detailed steps and code, refer to the [Jenkinsfile](https://github.com/shmue
 #### Contact
 For any inquiries or questions, please reach out to yakovsig@gmail.com.
 
+<a href="https://trackgit.com">
+<img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/lnvix48sxv5w8gudhkol" alt="trackgit-views" />
+</a>
